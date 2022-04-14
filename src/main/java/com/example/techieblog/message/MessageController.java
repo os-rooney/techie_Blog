@@ -25,7 +25,7 @@ public class MessageController {
 
     @GetMapping("/message")
     public String message(Model model) {
-        model.addAttribute("message", new MessageDTO(""));
+        model.addAttribute("message", new MessageDTO("", "", ""));
         return "message";
     }
 
@@ -35,7 +35,7 @@ public class MessageController {
             return "message";
         }
 
-        Message message = new Message(sessionUser, messageDTO.getText(), Instant.now());
+        Message message = new Message(sessionUser, messageDTO.getTitle(), messageDTO.getDescription(), messageDTO.getContent(), Instant.now());
         messageRepository.save(message);
 
         return "redirect:/";
@@ -44,7 +44,7 @@ public class MessageController {
     @PostMapping("/messageDelete")
     public String delete(@RequestParam long messageId, @ModelAttribute("sessionUser") User sessionUser) {
         Message message = messageRepository.findById(messageId).orElseThrow();
-        if(message.getUser() != sessionUser) {
+        if (message.getUser() != sessionUser) {
             throw new IllegalArgumentException("nein!");
         }
 
