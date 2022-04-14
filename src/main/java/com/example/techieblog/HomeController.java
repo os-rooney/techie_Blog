@@ -1,6 +1,7 @@
 package com.example.techieblog;
 
 import com.example.techieblog.message.MessageRepository;
+import com.example.techieblog.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

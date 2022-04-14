@@ -1,5 +1,7 @@
 package com.example.techieblog.message;
 
+import com.example.techieblog.user.User;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
