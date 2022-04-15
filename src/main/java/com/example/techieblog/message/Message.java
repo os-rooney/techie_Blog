@@ -1,12 +1,11 @@
 package com.example.techieblog.message;
 
+import com.example.techieblog.comment.Comment;
 import com.example.techieblog.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 public class Message {
@@ -14,6 +13,9 @@ public class Message {
     @Id
     @GeneratedValue
     private long id;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 
     @ManyToOne
     private User user;

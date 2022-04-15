@@ -1,6 +1,5 @@
 package com.example.techieblog.profile;
 
-import antlr.debug.MessageAdapter;
 import com.example.techieblog.message.Message;
 import com.example.techieblog.message.MessageRepository;
 import com.example.techieblog.user.User;
@@ -10,11 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 public class ProfileController {

@@ -1,5 +1,6 @@
 package com.example.techieblog.user;
 
+import com.example.techieblog.comment.Comment;
 import com.example.techieblog.message.Message;
 
 import javax.persistence.Entity;
@@ -20,6 +21,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 
     //Konstruktor
     public User() {
