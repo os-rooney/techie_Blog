@@ -67,6 +67,10 @@
         <a th:href="@{/profile/{username}(username=${message.user.username})}">
             <strong th:text="${'@' + message.user.username}"></strong>
         </a>
+        <a th:href="@{/article/{messageID}(messageID=${message.getId()})}">
+            <span th:text="${message.title}"></span>
+        </a>
+
         <span th:text="${message.description}"></span>
     </div>
 
