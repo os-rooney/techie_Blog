@@ -30,7 +30,9 @@ public class Message {
 
     public Message(User user, String title, String description, String content, Instant postedAt) {
         this.user = user;
+        this.title = title;
         this.description = description;
+        this.content = content;
         this.postedAt = postedAt;
     }
 
