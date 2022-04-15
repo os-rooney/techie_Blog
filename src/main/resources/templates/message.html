@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nachricht schreiben</title>
+</head>
+<body>
+<h1>Nachricht schreiben</h1>
+<form th:action="@{/message}" th:object="${message}" method="post">
+
+    <input th:field="*{title}"></input>
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+    <input th:field="*{description}"></input>
+    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+    <textarea th:field="*{content}"></textarea>
+    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+    <br>
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>
