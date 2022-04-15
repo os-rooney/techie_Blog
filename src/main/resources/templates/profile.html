@@ -10,7 +10,8 @@
 
     <hr>
 
-    <div th:each="message: ${user.messages}">
+    <h3>Articles</h3>
+    <div th:each="message: ${messages}">
         <strong th:text="${#dates.format(message.postedAt)}"></strong>
         <span th:text="${message.title}"></span>
         <span th:text="${message.description}"></span>
@@ -19,5 +20,6 @@
             <button type="submit">Delete</button>
         </form>
     </div>
+
 </body>
 </html>

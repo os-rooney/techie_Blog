@@ -36,7 +36,6 @@ public class Message {
         this.postedAt = postedAt;
     }
 
-
     public long getId() {
         return id;
     }
