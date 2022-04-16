@@ -28,7 +28,7 @@ public class CommentController {
     @GetMapping("/article/{messageId}")
     public String article(@PathVariable long messageId, Model model){
         model.addAttribute("comment", new CommentDTO(""));
-        model.addAttribute("message", messageRepository.findMessageById(messageId) );
+        model.addAttribute("message", messageRepository.findMessageById(messageId));
         return "article";
     }
 
@@ -37,6 +37,7 @@ public class CommentController {
         Message message = messageRepository.findById(messageId).orElseThrow();
         Comment newComment = new Comment(sessionUser, message, comment.getCommentText(), Instant.now());
         commentRepository.save(newComment);
+        model.addAttribute("message", message);
         return "article";
     }
 
