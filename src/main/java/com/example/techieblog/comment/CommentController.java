@@ -31,9 +31,10 @@ public class CommentController {
     }
 
     @PostMapping("/article/{messageID}")
-    public String commentSave(@ModelAttribute Comment comment){
-        Comment newComment = new Comment(comment.getComment());
+    public String commentSave(@ModelAttribute CommentDTO comment){
+        CommentDTO newComment = new CommentDTO(comment.getCommentText());
 
+        return "article";
     }
 
 }

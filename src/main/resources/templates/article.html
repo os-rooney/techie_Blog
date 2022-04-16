@@ -14,5 +14,11 @@
 <!--        <button type="submit">Delete</button>-->
 <!--    </form>-->
 </div>
+
+<form th:action="@{/article}" method="post">
+    <label>Comment:
+    <input th:field="${comment.commentText}">
+    </label>
+</form>
 </body>
 </html>
