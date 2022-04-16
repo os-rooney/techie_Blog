@@ -35,9 +35,11 @@ public class CommentController {
     @PostMapping("/article/{messageId}")
     public String commentSave(@PathVariable long messageId, @ModelAttribute CommentDTO comment, Model model, @ModelAttribute("sessionUser") User sessionUser){
         Message message = messageRepository.findById(messageId).orElseThrow();
+        System.out.println(">>>>" + comment.getCommentText());
         Comment newComment = new Comment(sessionUser, message, comment.getCommentText(), Instant.now());
         commentRepository.save(newComment);
         model.addAttribute("message", message);
+        model.addAttribute("comment", comment);
         return "article";
     }
 

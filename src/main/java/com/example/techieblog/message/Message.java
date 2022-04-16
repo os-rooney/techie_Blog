@@ -14,7 +14,7 @@ public class Message {
     @GeneratedValue
     private long id;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "message")
     private List<Comment> comments;
 
     @ManyToOne
