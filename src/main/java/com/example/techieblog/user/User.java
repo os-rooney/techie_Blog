@@ -19,6 +19,8 @@ public class User {
     private String username;
     private String password;
 
+    private String role;
+
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
@@ -32,6 +34,7 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.role = "user";
     }
 
     public String getUsername() {
@@ -44,5 +47,13 @@ public class User {
 
     public List<Message> getMessages() {
         return messages;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
