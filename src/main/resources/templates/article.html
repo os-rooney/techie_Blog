@@ -5,22 +5,26 @@
     <title>Blogpost</title>
 </head>
 <body>
-    <div th:object="${message}">
-        <strong th:text="${#dates.format(message.postedAt)}"></strong>
-        <span th:text="*{title}"></span>
-        <span th:text="${message.description}"></span>
-        <span th:text="${message.content}"></span>
+<div th:object="${message}">
+    <strong th:text="${#dates.format(message.postedAt)}"></strong>
+    <span th:text="*{title}"></span>
+    <span th:text="${message.description}"></span>
+    <span th:text="${message.content}"></span>
     <!--    <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">-->
     <!--        <button type="submit">Delete</button>-->
     <!--    </form>-->
-    </div>
-
-    <form action="#" th:object="${message}" th:action="@{/article/{messageId}(messageId=${message.getId()})}" method="post">
-        <label>Comment:
-        <input th:field="${comment.commentText}">
-        </label>
-    </form>
-
+</div>
+<!-- add new Comments -->
+<form th:object="${comment}" action="#" th:action="@{/article/{messageId}(messageId=${message.getId()})}" method="post">
+    <label>Comment:
+        <input type="text" th:field="*{commentText}">
+    </label>
+    <input type="submit" value="post comment">
+</form>
+<!-- Show Comments -->
+<div th:object="${comments}" th:each="comment : ${comments}">
+    <span th:text="${comment.getComment()}"></span>
+</div>
 
 </body>
 </html>
