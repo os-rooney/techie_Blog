@@ -19,7 +19,7 @@ public class User {
     private String username;
     private String password;
 
-    private String role;
+    private String userRole;
 
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
@@ -31,10 +31,10 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String userRole) {
         this.username = username;
         this.password = password;
-        this.role = "user";
+        this.userRole = userRole;
     }
 
     public String getUsername() {
@@ -49,11 +49,11 @@ public class User {
         return messages;
     }
 
-    public String getRole() {
-        return role;
+    public String getUserRole() {
+        return userRole;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 }

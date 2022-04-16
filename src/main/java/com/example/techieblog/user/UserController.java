@@ -43,7 +43,7 @@ public class UserController {
             return "register";
         }
 
-        User user = new User(registration.getUsername(), registration.getPassword1());
+        User user = new User(registration.getUsername(), registration.getPassword1(), registration.getUserRole());
         userRepository.save(user);
 
         return "redirect:/login";
