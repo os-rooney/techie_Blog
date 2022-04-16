@@ -15,12 +15,14 @@
     <!--    </form>-->
 </div>
 <!-- add new Comments -->
-<form th:object="${comment}" action="#" th:action="@{/article/{messageId}(messageId=${message.getId()})}" method="post">
-    <label>Comment:
-        <input type="text" th:field="*{commentText}">
-    </label>
-    <input type="submit" value="post comment">
-</form>
+<div th:object="${user}" th:if="${user != sessionUser}">
+    <form th:object="${comment}" action="#" th:action="@{/article/{messageId}(messageId=${message.getId()})}" method="post">
+        <label>Comment:
+            <input type="text" th:field="*{commentText}">
+        </label>
+        <input type="submit" value="post comment">
+    </form>
+</div>
 <!-- Show Comments -->
 <div th:object="${comments}" th:each="comment : ${comments}">
     <span th:text="${comment.getComment()}"></span>

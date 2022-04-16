@@ -50,6 +50,8 @@ public class CommentController {
         model.addAttribute("comment", new CommentDTO(""));
         // show/get Article
         model.addAttribute("message", messageRepository.findMessageById(message.getId()));
+        // send user data
+        model.addAttribute("user", sessionUser);
         return "article";
     }
 
