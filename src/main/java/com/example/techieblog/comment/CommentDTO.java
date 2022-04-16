@@ -5,13 +5,13 @@ import javax.validation.constraints.Size;
 public class CommentDTO {
 
     @Size(min =1, max = 99)
-    private String comment;
+    private String commentText;
 
     public CommentDTO(String comment) {
-        this.comment = comment;
+        this.commentText = comment;
     }
 
-    public String getComment() {
-        return comment;
+    public String getCommentText() {
+        return commentText;
     }
 }

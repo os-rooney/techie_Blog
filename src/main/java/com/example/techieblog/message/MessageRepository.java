@@ -10,6 +10,6 @@ import java.util.List;
 public interface MessageRepository extends CrudRepository<Message, Long> {
     List<Message> findAllByOrderByPostedAtDesc();
     List<Message> findMessagesByUserOrderByPostedAtDesc(User user);
-    List<Message> findMessageById(long messageID);
+    Message findMessageById(long messageID);
 
 }

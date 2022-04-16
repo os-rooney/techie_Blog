@@ -8,7 +8,8 @@ import java.util.List;
 
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, Long> {
-    List<Comment> findCommentsByMessageOrderByPostedAtAsc(Message message);
+    List<Comment> findCommentsByMessageOrderByPostedAtAsc(long messageID);
+    List<Comment> findAllByMessage_Id(long messageID);
 
 
 }

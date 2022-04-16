@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Blogpost</title>
 </head>
 <body>
 <div th:object="${message}">
-<!--    <strong th:text="${#dates.format(message.postedAt)}"></strong>-->
+    <strong th:text="${#dates.format(message.postedAt)}"></strong>
     <span th:text="*{title}"></span>
-<!--    <span th:text="${message.description}"></span>-->
-<!--    <span th:text="${message.content}"></span>-->
+    <span th:text="${message.description}"></span>
+    <span th:text="${message.content}"></span>
 <!--    <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">-->
 <!--        <button type="submit">Delete</button>-->
 <!--    </form>-->
