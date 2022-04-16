@@ -11,7 +11,6 @@ public class RegistrationDTO {
     @Pattern(regexp = "^[a-zA-Z0-9_]+$", message = "Darf nur Buchstaben, Zahlen und den Unterstrich enthalten.")
     private String username;
 
-    private String userRole;
     @Size(min = 5)
     private String password1;
     private String password2;
@@ -20,7 +19,6 @@ public class RegistrationDTO {
         this.username = username;
         this.password1 = password1;
         this.password2 = password2;
-        this.userRole = "user";
     }
 
     public String getUsername() {
@@ -35,7 +33,4 @@ public class RegistrationDTO {
         return password2;
     }
 
-    public String getUserRole() {
-        return userRole;
-    }
 }

@@ -41,21 +41,15 @@ public class CommentController {
     public String article(@PathVariable long messageId, @ModelAttribute CommentDTO comment, @ModelAttribute("sessionUser") User sessionUser, Model model){
         Message message = messageRepository.findMessageById(messageId);
         Comment newComment = new Comment(sessionUser, message, comment.getCommentText(), Instant.now());
-        System.out.println(comment.getCommentText());
-        System.out.println(message.getContent());
         commentRepository.save(newComment);
         // show comments
         model.addAttribute("comments", commentRepository.findAllByMessage_Id(message.getId()));
-        // add new Comments
-        model.addAttribute("comment", new CommentDTO(""));
         // show/get Article
         model.addAttribute("message", messageRepository.findMessageById(message.getId()));
         // send user data
         model.addAttribute("user", sessionUser);
+        // add new Comments
+        model.addAttribute("comment", new CommentDTO(""));
         return "article";
     }
-
-
-
-
 }

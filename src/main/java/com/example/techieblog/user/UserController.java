@@ -1,5 +1,4 @@
 package com.example.techieblog.user;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,14 +7,11 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
-
 @Controller
 public class UserController {
 
     private UserRepository userRepository;
-
     @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -43,9 +39,8 @@ public class UserController {
             return "register";
         }
 
-        User user = new User(registration.getUsername(), registration.getPassword1(), registration.getUserRole());
+        User user = new User(registration.getUsername(), registration.getPassword1());
         userRepository.save(user);
-
         return "redirect:/login";
     }
 }

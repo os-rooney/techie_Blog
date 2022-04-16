@@ -15,7 +15,7 @@
     <!--    </form>-->
 </div>
 <!-- add new Comments -->
-<div th:object="${user}" th:if="${user != sessionUser}">
+<div th:if="${sessionUser != null}">
     <form th:object="${comment}" action="#" th:action="@{/article/{messageId}(messageId=${message.getId()})}" method="post">
         <label>Comment:
             <input type="text" th:field="*{commentText}">
