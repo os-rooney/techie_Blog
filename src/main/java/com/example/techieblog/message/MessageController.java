@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -53,5 +50,14 @@ public class MessageController {
 
         return "redirect:" + UriComponentsBuilder.fromPath("/profile").pathSegment(sessionUser.getUsername()).toUriString();
     }
+
+    @GetMapping("/messageUpdate/{messageId}")
+    public String getMessageDataToUpdate(@PathVariable long messageId, @ModelAttribute("sessionUser") User sessionUser, Model model) {
+        Message message = messageRepository.findMessageById(messageId);
+
+        model.addAttribute("message", message);
+        return "message";
+    }
+
 
 }
