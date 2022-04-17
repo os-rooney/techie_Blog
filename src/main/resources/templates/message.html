@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Nachricht schreiben</h1>
-<form th:action="@{/message}" th:object="${message}" method="post">
+<form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
 
     <input th:field="*{title}"></input>
     <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
