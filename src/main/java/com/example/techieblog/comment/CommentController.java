@@ -34,7 +34,7 @@ public class CommentController {
         model.addAttribute("message", messageRepository.findMessageById(messageId));
         return "article";
     }
-
+    // Send Article
     @PostMapping("/article/{messageId}")
     public String article(@PathVariable long messageId, @ModelAttribute CommentDTO comment, @ModelAttribute("sessionUser") User sessionUser, Model model){
         Message message = messageRepository.findMessageById(messageId);
