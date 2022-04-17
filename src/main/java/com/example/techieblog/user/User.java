@@ -26,7 +26,7 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = "read only";
+        this.role = "commentOnly";
     }
 
     public String getUsername() {
