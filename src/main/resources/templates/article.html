@@ -26,6 +26,15 @@
 <!-- Show Comments -->
 <div th:object="${comments}" th:each="comment : ${comments}">
     <span th:text="${comment.getComment()}"></span>
+    <form th:if="${comment.user.getId() == sessionUser.id}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
+        <button type="submit">Delete</button>
+    </form>
+    <!--
+    <div th:if="${sessionUser != null}">
+        <div th:if="${comment.user.getId() == sessionUser.id}">
+            <a th:href="@{/deleteComment/{commentId}(commentId = ${comment.getId()})}">delete comment</a>
+        </div>
+    </div>-->
 </div>
 
 </body>

@@ -6,10 +6,8 @@ import com.example.techieblog.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.time.Instant;
@@ -51,5 +49,14 @@ public class CommentController {
         // add new Comments
         model.addAttribute("comment", new CommentDTO(""));
         return "article";
+    }
+
+    // delete comment
+    @PostMapping("/deleteComment")
+    public String delete(@RequestParam long commentId, @RequestParam long messageId ,Model model){
+        Comment deleteComment = commentRepository.findCommentById(commentId);
+        commentRepository.delete(deleteComment);
+
+        return "redirect:/article/" + messageId;
     }
 }
