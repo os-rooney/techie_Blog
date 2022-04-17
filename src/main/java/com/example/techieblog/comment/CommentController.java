@@ -53,7 +53,7 @@ public class CommentController {
 
     // delete comment
     @PostMapping("/deleteComment")
-    public String delete(@RequestParam long commentId, @RequestParam long messageId ,Model model){
+    public String delete(@RequestParam long commentId, @RequestParam long messageId){
         Comment deleteComment = commentRepository.findCommentById(commentId);
         commentRepository.delete(deleteComment);
 
