@@ -8,7 +8,9 @@
 <ul>
     <li th:each="registeredUser:${registeredUsers}">
         <span th:text="${registeredUser.getUsername()}"></span>
+        <a th:href="@{/changeToAdmin/{userId}(userId = ${registeredUser.getId()})}">change role to admin</a>
     </li>
+
 </ul>
 </body>
 </html>

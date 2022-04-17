@@ -29,6 +29,10 @@ public class User {
         this.role = "commentOnly";
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }
