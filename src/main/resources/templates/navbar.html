@@ -8,7 +8,7 @@
   <nav class="nav-list hide">
     <ul class="nav-links">
       <li>
-        <a href="#">home</a>
+        <a th:href="@{/}">home</a>
       </li>
       <li  th:attr="class=${sessionUser != null ? 'hide' : ''}">
         <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
