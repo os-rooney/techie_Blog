@@ -24,7 +24,6 @@ public class MessageController {
     @GetMapping("/message")
     public String message(Model model) {
         model.addAttribute("message", new MessageDTO("", "", ""));
-
         return "message";
     }
 
