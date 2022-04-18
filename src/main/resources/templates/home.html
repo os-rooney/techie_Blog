@@ -7,63 +7,68 @@
     <title>Techie Blog</title>
     <!-- CSS only -->
     <link rel="stylesheet" th:href="@{styles/home.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<!-- Navigation bar -->
-<div>
-    <!-- Logo -->
-    <h2>Techie Blog</h2>
-    <nav>
-        <ul>
-            <li>
-                <a href="#">home</a>
-            </li>
-            <li th:if="${sessionUser != null}">
-                <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">author-list</a>
-            </li>
-            <li>
-                <a href="#">archive</a>
-            </li>
-            <li>
-                <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
-            </li>
-            <li>
-                <a th:href="@{/register}">sign up</a>
-            </li>
-            <li>
-                <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
-                    <button type="submit">Logout</button>
-                </form>
-            </li>
-        </ul>
-    </nav>
-</div>
-<main>
-    <h1 th:text="${'Willkommen'}" th:if="${sessionUser == null}"></h1>
-    <h1 th:text="${'Willkommen, ' + sessionUser.username}" th:if="${sessionUser != null}"></h1>
-
-    <hr>
-
-    <div th:if="${sessionUser != null}">
-        <p>
-            <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">Nachricht verfassen</a>
-        </p>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <i class="fa-solid fa-bug"></i>
+            <h2>Techie Blog</h2>
+        </div>
+        <nav class="nav-list hide">
+            <ul class="nav-links">
+                <li>
+                    <a href="#">home</a>
+                </li>
+                <li th:if="${sessionUser != null}">
+                    <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">author-list</a>
+                </li>
+                <li>
+                    <a href="#">archive</a>
+                </li>
+                <li>
+                    <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
+                </li>
+                <li>
+                    <a th:href="@{/register}">sign up</a>
+                </li>
+                <li>
+                    <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="menu-btn-burger"></div>
+        </div>
     </div>
+    <main>
+        <h1 th:text="${'Willkommen'}" th:if="${sessionUser == null}"></h1>
+        <h1 th:text="${'Willkommen, ' + sessionUser.username}" th:if="${sessionUser != null}"></h1>
 
-    <hr>
+        <div th:if="${sessionUser != null}">
+            <p>
+                <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">Nachricht verfassen</a>
+            </p>
+        </div>
 
-    <div th:each="message: ${messages}">
-        <a th:href="@{/profile/{username}(username=${message.user.username})}">
-            <strong th:text="${'@' + message.user.username}"></strong>
-        </a>
-        <a th:href="@{/article/{messageID}(messageID=${message.getId()})}">
-            <span th:text="${message.title}"></span>
-        </a>
+        <div th:each="message: ${messages}">
+            <a th:href="@{/profile/{username}(username=${message.user.username})}">
+                <strong th:text="${'@' + message.user.username}"></strong>
+            </a>
+            <a th:href="@{/article/{messageID}(messageID=${message.getId()})}">
+                <span th:text="${message.title}"></span>
+            </a>
 
-        <span th:text="${message.description}"></span>
-    </div>
+            <span th:text="${message.description}"></span>
+        </div>
+    </main>
 
-</main>
-
+    <!-- JavaScript -->
+    <script type="text/javascript" th:src="@{js/app.js}"></script>
 </body>
 </html>
