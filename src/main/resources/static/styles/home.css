@@ -35,6 +35,7 @@ body{
     margin-left: .625rem;
     font-size: 1.425rem;
     transform: rotate(25deg);
+    padding-top: .125rem;
 }
 .logo h2{
     color: #DAE1E7;
@@ -69,7 +70,7 @@ nav ul li a{
     height: .225rem;
     background-color: #DAE1E7;
     border-radius: .425rem;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 .menu-btn-burger::before, .menu-btn-burger::after{
     content: '';
@@ -114,4 +115,9 @@ nav ul li a{
 .nav-links li a{
     text-decoration: none;
     text-transform: capitalize;
+}
+/* Hero Section */
+h3{
+    font-size: 1.4rem;
+    margin: 1rem 1rem;
 }

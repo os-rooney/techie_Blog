@@ -23,7 +23,7 @@ public class MessageController {
 
     @GetMapping("/message")
     public String message(Model model) {
-        model.addAttribute("message", new MessageDTO("", "", ""));
+        model.addAttribute("messageDTO", new MessageDTO("", "", ""));
         return "message";
     }
 

@@ -47,8 +47,8 @@
         </div>
     </div>
     <main>
-        <h1 th:text="${'Willkommen'}" th:if="${sessionUser == null}"></h1>
-        <h1 th:text="${'Willkommen, ' + sessionUser.username}" th:if="${sessionUser != null}"></h1>
+        <h2 th:text="${'Willkommen'}" th:if="${sessionUser == null}"></h2>
+        <h2 th:text="${'Willkommen, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
 
         <div th:if="${sessionUser != null}">
             <p>
@@ -56,16 +56,16 @@
             </p>
         </div>
 
-        <div th:each="message: ${messages}">
+        <article th:each="message: ${messages}">
             <a th:href="@{/profile/{username}(username=${message.user.username})}">
                 <strong th:text="${'@' + message.user.username}"></strong>
             </a>
             <a th:href="@{/article/{messageID}(messageID=${message.getId()})}">
-                <span th:text="${message.title}"></span>
+                <h3 th:text="${message.title}"></h3>
             </a>
 
             <span th:text="${message.description}"></span>
-        </div>
+        </article>
     </main>
 
     <!-- JavaScript -->

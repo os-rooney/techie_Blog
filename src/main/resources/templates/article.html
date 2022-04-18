@@ -13,9 +13,6 @@
     <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
         <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
     </form>
-    <!--    <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">-->
-    <!--        <button type="submit">Delete</button>-->
-    <!--    </form>-->
 </div>
 <!-- add new Comments -->
 <div th:if="${sessionUser != null}">
