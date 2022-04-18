@@ -60,10 +60,7 @@ public class MessageController {
     @GetMapping("/messageUpdate/{messageId}")
     public String getMessageDataToUpdate(@PathVariable long messageId, @ModelAttribute("sessionUser") User sessionUser, Model model) {
         Message message = messageRepository.findMessageById(messageId);
-
         model.addAttribute("message", message);
         return "message";
     }
-
-
 }

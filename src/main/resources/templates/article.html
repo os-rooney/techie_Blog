@@ -10,7 +10,6 @@
     <span th:text="*{title}"></span>
     <span th:text="${message.description}"></span>
     <span th:text="${message.content}"></span>
-
     <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
         <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
     </form>
