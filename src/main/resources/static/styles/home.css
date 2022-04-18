@@ -174,7 +174,7 @@ main article{
 footer {
     height: 5vh;
     background-color: #00909E;
-    position: absolute;
+    position: initial;
     width: 100%;
     bottom: 0;
     display: flex;
