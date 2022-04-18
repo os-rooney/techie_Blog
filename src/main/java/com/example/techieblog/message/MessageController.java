@@ -26,22 +26,29 @@ public class MessageController {
         model.addAttribute("messageDTO", new MessageDTO("", "", ""));
         return "message";
     }
-
+    // update article
     @PostMapping("/message/{id}")
     public String message(@Valid @ModelAttribute("message") MessageDTO messageDTO, @PathVariable long id, BindingResult bindingResult, @ModelAttribute("sessionUser") User sessionUser) {
         if (bindingResult.hasErrors()) {
             return "message";
         }
-        if (!messageRepository.existsById(id)) {
-            Message message = new Message(sessionUser, messageDTO.getTitle(), messageDTO.getDescription(), messageDTO.getContent(), Instant.now());
-            messageRepository.save(message);
-        }else{
-            Message message = messageRepository.findMessageById(id);
-            message.setTitle(messageDTO.getTitle());
-            message.setDescription(messageDTO.getDescription());
-            message.setContent(messageDTO.getContent());
-            messageRepository.save(message);
+        Message message = messageRepository.findMessageById(id);
+        message.setTitle(messageDTO.getTitle());
+        message.setDescription(messageDTO.getDescription());
+        message.setContent(messageDTO.getContent());
+        messageRepository.save(message);
+        return "redirect:/";
+    }
+
+    // add new article
+    @PostMapping("/message")
+    public String message(@Valid @ModelAttribute("message") MessageDTO messageDTO, BindingResult bindingResult, @ModelAttribute("sessionUser") User sessionUser) {
+        if (bindingResult.hasErrors()) {
+            return "message";
         }
+        Message message = new Message(sessionUser, messageDTO.getTitle(), messageDTO.getDescription(), messageDTO.getContent(), Instant.now());
+        messageRepository.save(message);
+
         return "redirect:/";
     }
 

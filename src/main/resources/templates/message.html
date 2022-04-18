@@ -6,16 +6,33 @@
 </head>
 <body>
 <h1>Nachricht schreiben</h1>
-<form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${messageDTO}" method="post">
-    <input th:field="*{title}"></input>
-    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-    <input th:field="*{description}"></input>
-    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-    <textarea th:field="*{content}"></textarea>
-    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-    <br>
-    <button type="submit">Send</button>
-</form>
+
+<!-- update article -->
+<div th:if="${message != null}">
+    <form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
+        <input th:field="*{title}"></input>
+        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+        <input th:field="*{description}"></input>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+        <textarea th:field="*{content}"></textarea>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<!-- add article -->
+<div th:if="${messageDTO != null}">
+    <form th:action="@{/message}" th:object="${messageDTO}" method="post">
+        <input th:field="*{title}"></input>
+        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+        <input th:field="*{description}"></input>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+        <textarea th:field="*{content}"></textarea>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+</div>
 
 
 </body>

@@ -30,15 +30,15 @@
                     <a href="#">archive</a>
                 </li>
                 <li>
-                    <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
-                </li>
-                <li>
-                    <a th:href="@{/register}">sign up</a>
-                </li>
-                <li>
                     <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
                         <button type="submit">Logout</button>
                     </form>
+                </li>
+                <li>
+                    <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
+                </li>
+                <li>
+                    <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
                 </li>
             </ul>
         </nav>
