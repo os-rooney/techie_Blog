@@ -45,7 +45,7 @@ nav ul{
     display: flex;
 }
 nav ul li a{
-    color: white;
+    color: #DAE1E7;
 }
 .hide{
     display: none;
@@ -114,10 +114,78 @@ nav ul li a{
 }
 .nav-links li a{
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: uppercase;
+}
+.nav-links li form button{
+    background-color: transparent;
+    outline: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #DAE1E7;
+    border: none;
 }
 /* Hero Section */
-h3{
+main{
+    min-height: 88vh;
+}
+main h2{
     font-size: 1.4rem;
-    margin: 1rem 1rem;
+    padding: 1.225rem 1rem 1rem 1rem;
+}
+/* new article section */
+.new-article a{
+    margin: .625rem 0 3rem 1.625rem;
+    display: inline-block;
+    background-color: #DAE1E7;
+    color: #142850;
+    padding: .625rem;
+    border-radius: .4rem;
+    text-decoration: none;
+    box-shadow: .1rem .1rem .2rem #B1D0E0;
+}
+/* Articles Styles */
+main article{
+    width: 20rem;
+    margin-left: 1.625rem;
+    padding: 1rem;
+    background-color: #00909E;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+    margin-bottom: 1rem;
+}
+.article-title {
+    color: #142850;
+    font-size: 1.625rem;
+    cursor: pointer;
+}
+.author-date{
+    margin-bottom: 1rem;
+}
+.article-date{
+    color: #142850;
+    font-weight: lighter;
+    text-decoration: none;
+}
+.article-author{
+    color: #142850;
+    cursor: pointer;
+}
+/* footer */
+footer {
+    height: 5vh;
+    background-color: #00909E;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    text-align: center;
+    color: #B1D0E0;
+}
+footer p a {
+    color: #B1D0E0;
+    font-weight: bold;
 }

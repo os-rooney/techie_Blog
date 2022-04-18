@@ -23,22 +23,19 @@
                 <li>
                     <a href="#">home</a>
                 </li>
+                <li  th:attr="class=${sessionUser != null ? 'hide' : ''}">
+                    <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
+                </li>
+                <li th:attr="class=${sessionUser != null ? 'hide' : ''}">
+                    <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
+                </li>
                 <li th:if="${sessionUser != null}">
                     <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">author-list</a>
-                </li>
-                <li>
-                    <a href="#">archive</a>
                 </li>
                 <li>
                     <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
                         <button type="submit">Logout</button>
                     </form>
-                </li>
-                <li>
-                    <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
-                </li>
-                <li>
-                    <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
                 </li>
             </ul>
         </nav>
@@ -47,27 +44,34 @@
         </div>
     </div>
     <main>
-        <h2 th:text="${'Willkommen'}" th:if="${sessionUser == null}"></h2>
-        <h2 th:text="${'Willkommen, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
+        <h2 th:text="${'Welcome'}" th:if="${sessionUser == null}"></h2>
+        <h2 th:text="${'Welcome, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
 
-        <div th:if="${sessionUser != null}">
-            <p>
-                <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">Nachricht verfassen</a>
-            </p>
+        <div th:if="${sessionUser != null}" class="new-article">
+                <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write an article</a>
         </div>
 
+
+
         <article th:each="message: ${messages}">
-            <a th:href="@{/profile/{username}(username=${message.user.username})}">
-                <strong th:text="${'@' + message.user.username}"></strong>
-            </a>
-            <a th:href="@{/article/{messageID}(messageID=${message.getId()})}">
+            <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
                 <h3 th:text="${message.title}"></h3>
             </a>
-
-            <span th:text="${message.description}"></span>
+            <div class="author-date">
+                <a class="article-author" th:href="@{/profile/{username}(username=${message.user.username})}">
+                    <strong th:text="${message.user.username}"></strong>
+                </a>
+                <a class="article-date" th:href="@{/profile/{username}(username=${message.user.username})}">
+                    <span th:text="${#dates.format(message.postedAt,'dd-MM-yyyy HH:mm')}"></span>
+                </a>
+            </div>
+            <span class="article-description" th:text="${message.description}"></span>
         </article>
     </main>
 
+    <footer>
+        <p>Created by: <a href="https://gitlab.com/ASchiebel">Anja S.</a>,<a href="https://gitlab.com/os-rooney">Rooney O.</a></p>
+    </footer>
     <!-- JavaScript -->
     <script type="text/javascript" th:src="@{js/app.js}"></script>
 </body>
