@@ -1,0 +1,32 @@
+<!-- Navigation bar -->
+<div class="navbar" th:fragment="navbar">
+  <!-- Logo -->
+  <div class="logo">
+    <i class="fa-solid fa-bug"></i>
+    <h2>Techie Blog</h2>
+  </div>
+  <nav class="nav-list hide">
+    <ul class="nav-links">
+      <li>
+        <a href="#">home</a>
+      </li>
+      <li  th:attr="class=${sessionUser != null ? 'hide' : ''}">
+        <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
+      </li>
+      <li th:attr="class=${sessionUser != null ? 'hide' : ''}">
+        <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
+      </li>
+      <li th:if="${sessionUser != null}">
+        <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">author-list</a>
+      </li>
+      <li>
+        <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
+          <button type="submit">Logout</button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+  <div class="menu-btn">
+    <div class="menu-btn-burger"></div>
+  </div>
+</div>

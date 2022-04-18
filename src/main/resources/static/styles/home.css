@@ -110,7 +110,7 @@ nav ul li a{
     height: 93vh;
     background-color: #27496D;
     list-style: none;
-    font-size: 2rem;
+    font-size: 1.625rem;
 }
 .nav-links li a{
     text-decoration: none;
@@ -119,7 +119,7 @@ nav ul li a{
 .nav-links li form button{
     background-color: transparent;
     outline: none;
-    font-size: 2rem;
+    font-size: 1.625rem;
     text-transform: uppercase;
     color: #DAE1E7;
     border: none;
@@ -155,8 +155,11 @@ main article{
 }
 .article-title {
     color: #142850;
-    font-size: 1.625rem;
+    font-size: 1.125rem;
     cursor: pointer;
+}
+.article-title h3{
+    padding-bottom: .425rem;
 }
 .author-date{
     margin-bottom: 1rem;
