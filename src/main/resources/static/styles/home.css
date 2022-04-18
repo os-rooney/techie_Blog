@@ -48,22 +48,3 @@ main article{
     color: #142850;
     cursor: pointer;
 }
-/* footer */
-footer {
-    height: 5vh;
-    background-color: #00909E;
-    position: initial;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-footer p {
-    text-align: center;
-    color: #B1D0E0;
-}
-footer p a {
-    color: #B1D0E0;
-    font-weight: bold;
-}

@@ -2,43 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogpost</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" th:href="@{/styles/navbar-footer.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<div th:object="${message}">
-    <strong th:text="${#dates.format(message.postedAt)}"></strong>
-    <span th:text="*{title}"></span>
-    <span th:text="${message.description}"></span>
-    <span th:text="${message.content}"></span>
-    <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
-        <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
-    </form>
-</div>
-<!-- add new Comments -->
-<div th:if="${sessionUser != null}">
-    <form th:object="${comment}" action="#" th:action="@{/article/{messageId} (messageId=${message.getId()})}" method="post">
-        <label>Comment:
-            <input type="text" th:field="*{commentText}">
-        </label>
-        <input type="submit" value="post comment">
-    </form>
-</div>
-<!-- Show Comments -->
-<div th:object="${comments}" th:each="comment : ${comments}">
-    <span th:text="${comment.getComment()}"></span>
-
-    <div th:if="${sessionUser != null}">
-        <form th:if="${comment.user.getId() == sessionUser.id && !sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
-            <button type="submit">Delete</button>
+    <!-- Navbar -->
+    <div th:replace="navbar::navbar"></div>
+    <div th:object="${message}">
+        <strong th:text="${#dates.format(message.postedAt)}"></strong>
+        <span th:text="*{title}"></span>
+        <span th:text="${message.description}"></span>
+        <span th:text="${message.content}"></span>
+        <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
+            <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
         </form>
     </div>
-
+    <!-- add new Comments -->
     <div th:if="${sessionUser != null}">
-        <form th:if="${sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
-            <button type="submit">Delete</button>
+        <form th:object="${comment}" action="#" th:action="@{/article/{messageId} (messageId=${message.getId()})}" method="post">
+            <label>Comment:
+                <input type="text" th:field="*{commentText}">
+            </label>
+            <input type="submit" value="post comment">
         </form>
     </div>
-</div>
+    <!-- Show Comments -->
+    <div th:object="${comments}" th:each="comment : ${comments}">
+        <span th:text="${comment.getComment()}"></span>
 
+        <div th:if="${sessionUser != null}">
+            <form th:if="${comment.user.getId() == sessionUser.id && !sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+
+        <div th:if="${sessionUser != null}">
+            <form th:if="${sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script type="text/javascript" th:src="@{/js/app.js}"></script>
 </body>
 </html>
