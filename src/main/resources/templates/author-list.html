@@ -18,12 +18,24 @@
         <h2>registered User</h2>
         <img th:src="@{img/changeToAdmin.svg}" src="" alt="an image that shows the admin changing roles of users to make them admins too">
         <h4>list of all registered users:</h4>
-        <ol>
-            <li th:each="registeredUser:${registeredUsers}">
-                <span th:text="${registeredUser.getUsername()}"></span>
-                <a th:href="@{/changeToAdmin/{userId}(userId = ${registeredUser.getId()})}">change role to admin</a>
-            </li>
-        </ol>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="registeredUser:${registeredUsers}">
+                    <td><span th:text="${registeredUser.getUsername()}"></span></td>
+                    <td>
+                        <form th:action="@{/changeToAdmin/{userId}(userId = ${registeredUser.getId()})}" method="post">
+                            <button type="submit">change role to admin</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
