@@ -48,13 +48,13 @@
 
 }
 
-.comment-container >div{
+.comment-container > div{
     background-color: #00909E;
     padding: 0.425rem 1rem 1rem 1rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
     width: 95%;
-    margin: 0.4rem 0rem;
+    margin: 0.5rem 0;
 }
 /*write comment block*/
 .comment-container{
@@ -69,7 +69,6 @@
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
     margin-top: 1rem;
-    /*TODO Button nach rechts verschieben!*/
 }
 .add-comment{
     width: 90vw;
@@ -94,7 +93,7 @@
     transform: translateX(-100%);
 }
 /*show comment*/
-.comment-container div form button{
+.comment-container form button{
     outline: none;
     border: none;
     background-color: #B1D0E0;
@@ -103,4 +102,12 @@
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
     margin-top: 1rem;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
 }
+.comment-container .show-comment span:first-child{
+    display: inline-block;
+    padding-top: .425rem;
+}
+

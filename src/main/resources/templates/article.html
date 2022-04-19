@@ -38,8 +38,8 @@
         </form>
     </div>
     <!-- Show Comments -->
-    <div th:object="${comments}" th:each="comment : ${comments}">
-        <span th:text="${comment.getComment()}"></span>
+    <div class="show-comment" th:object="${comments}" th:each="comment : ${comments}">
+        <span th:text="${comment.getUser().username}"></span>
         <span th:text="${comment.getComment()}"></span>
 
         <div th:if="${sessionUser != null}">
