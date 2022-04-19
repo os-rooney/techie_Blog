@@ -15,11 +15,9 @@
 <!-- Navbar -->
 <div th:replace="navbar::navbar"></div>
 <main>
-    <h1>All articles</h1>
-
     <!-- show all articles -->
     <div class="container">
-        <h2>Latest articles:</h2>
+        <h1>All articles</h1>
         <article th:each="message: ${messages}">
             <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
                 <h3 th:text="${message.title}"></h3>
