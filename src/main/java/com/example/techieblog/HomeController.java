@@ -24,4 +24,10 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/archive")
+    public String archive(@ModelAttribute("sessionUser") User sessionUser, Model model) {
+        model.addAttribute("messages", messageRepository.findAllByOrderByPostedAtDesc());
+        return "archive";
+    }
+
 }
