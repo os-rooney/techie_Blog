@@ -6,7 +6,6 @@
     padding-top: 8vh;
 }
 form{
-
     text-align: left;
 }
 form h1{
@@ -18,9 +17,6 @@ form label{
 }
 form label:not(:first-child){
     padding-top: 1.625rem;
-}
-form label:last-child{
-
 }
 .form-content {
     background-color: #00909E;
@@ -50,7 +46,11 @@ form label:last-child{
     padding: .625rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
+    margin: 1rem 0;
 }
 .form-content button:hover{
     transform: scale(1.1);
+}
+footer{
+    position: absolute;
 }
