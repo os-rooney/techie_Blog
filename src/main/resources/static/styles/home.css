@@ -5,7 +5,7 @@ main{
 }
 main h2{
     font-size: 1.4rem;
-    padding: 1.225rem 1rem 1rem 1rem;
+    padding: 1.225rem 1rem 2rem 1rem;
 }
 .svg{
     width: 100%;
@@ -19,8 +19,16 @@ main h2{
     z-index: 1;
 }
 /* new article section */
+.new-article{
+    width: 20rem;
+    margin: 2rem auto;
+    padding-top: 1rem;
+}
+.new-article p{
+
+}
 .new-article a{
-    margin: .625rem 0 3rem 1.625rem;
+    margin: .625rem 0;
     display: inline-block;
     background-color: #DAE1E7;
     color: #142850;

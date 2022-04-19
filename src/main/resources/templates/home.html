@@ -18,14 +18,16 @@
         <h2 th:text="${'Welcome'}" th:if="${sessionUser == null}"></h2>
         <h2 th:text="${'Welcome, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
 
-        <div th:if="${sessionUser != null}" class="new-article">
-                <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write an article</a>
-        </div>
-
         <div class="svg">
             <img th:src="@{/img/techieblog.svg}" src="" alt="a svg pic with a women holding a cup of coffee and checks out the techie blog"/>
         </div>
 
+        <!-- write a new article section -->
+        <div th:if="${sessionUser != null}" class="new-article">
+            <p>Share your thoughts and knowledge with the world:</p>
+            <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write a new article</a>
+        </div>
+        <!-- show latest articles section -->
         <div class="container">
             <h2>Latest articles:</h2>
             <article th:each="message: ${messages}">
