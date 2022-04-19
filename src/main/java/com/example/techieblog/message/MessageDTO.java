@@ -4,13 +4,13 @@ import javax.validation.constraints.Size;
 
 public class MessageDTO {
 
-    @Size(min = 1, max = 99)
+    @Size(min = 1)
     private String title;
 
-    @Size(min = 1, max = 99)
+    @Size(min = 1)
     private String description;
 
-    @Size(min = 1, max = 99)
+    @Size(min = 1)
     private String content;
 
 
