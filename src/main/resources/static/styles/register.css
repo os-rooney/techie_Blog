@@ -40,6 +40,11 @@ form label:not(:first-child){
     caret-color: #B1D0E0;
     color: #B1D0E0;
 }
+.form-content p{
+    color: darkred;
+    padding-top: 1rem;
+}
+
 .form-content button{
     outline: none;
     border: none;

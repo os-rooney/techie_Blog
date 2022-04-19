@@ -4,26 +4,34 @@
     #6998AB
     #B1D0E0
 */
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 8vh;
 }
-form{
+
+form {
     text-align: left;
 }
-form h2{
+
+form h2 {
     margin-bottom: 1rem;
 }
-.form-content{
+form label{
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-content {
     background-color: #00909E;
     padding: 1rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
 }
-.form-content input{
+
+.form-content input {
     border: none;
     background-color: transparent;
     border-bottom: .1rem solid #B1D0E0;
@@ -31,60 +39,37 @@ form h2{
     padding-top: 1rem;
     font-size: 1rem;
     color: #B1D0E0;
-
-
 }
-.form-content input[type="text"]:focus{
 
+.form-content input[type="text"]:focus, .form-content input[type="password"]:focus {
+    outline: none;
+    border: none;
+    border-bottom: .1rem solid #B1D0E0;
+    caret-color: #B1D0E0;
+    color: #B1D0E0;
+}
+
+.form-content p{
+    color: darkred;
+    padding-top: 1rem;
+}
+
+.form-content button {
     outline: none;
     border: none;
     background-color: #B1D0E0;
     color: #142850;
-    padding: .625rem;
+    padding: .425rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
     margin: 1rem 0;
-
+}
+.form-content button:hover{
+    transform: scale(1.1);
 }
 
-footer{
+footer {
     position: absolute;
 }
 
-/*.login {
-    font-size: 1.4rem;
-    margin-left: 1.625rem;
-    padding: 8vh 0rem 1rem 0rem;
-}
-
-!* Login Box *!
-.login-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 20rem;
-    margin-left: 1.625rem;
-    padding: 1rem;
-    background-color: #00909E;
-    color: #142850;
-    border-radius: .4rem;
-    box-shadow: .1rem .1rem .3rem #142850;
-    margin-bottom: 1rem;
-}
-.login-name{
-    margin: .625rem 0rem;
-
-}
-!* Login Button *!
-.login-button {
-    margin: .625rem 0rem;
-    display: inline-block;
-    background-color: #DAE1E7;
-    color: #142850;
-    padding: .325rem;
-    border-radius: .4rem;
-    text-decoration: none;
-    box-shadow: .1rem .1rem .2rem #B1D0E0;
-}*/
 
