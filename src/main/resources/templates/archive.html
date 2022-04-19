@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>archive</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" th:href="@{styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{styles/archive.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<!-- Navbar -->
+<div th:replace="navbar::navbar"></div>
+<main>
+    <h1>All articles</h1>
+
+    <div class="svg">
+        <img th:src="@{/img/techieblog.svg}" src="" alt="a svg pic with a women holding a cup of coffee and checks out the techie blog"/>
+    </div>
+
+    <!-- show all articles -->
+    <div class="container">
+        <h2>Latest articles:</h2>
+        <article th:each="message: ${messages}">
+            <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
+                <h3 th:text="${message.title}"></h3>
+            </a>
+            <div class="author-date">
+                <img class="robot" th:src="@{img/robot.svg}" src="" alt="user avatar">
+                <a class="article-author" th:href="@{/profile/{username}(username=${message.user.username})}">
+                    <strong th:text="${message.user.username}"></strong>
+                </a>
+                <a class="article-date" th:href="@{/profile/{username}(username=${message.user.username})}">
+                    <span th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></span>
+                </a>
+            </div>
+            <span class="article-description" th:text="${message.description}"></span>
+        </article>
+    </div>
+</main>
+<!-- footer -->
+<div th:replace="footer::footer"></div>
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{js/app.js}"></script>
+</body>
+</html>
