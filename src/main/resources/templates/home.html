@@ -40,7 +40,7 @@
                         <strong th:text="${message.user.username}"></strong>
                     </a>
                     <a class="article-date" th:href="@{/profile/{username}(username=${message.user.username})}">
-                        <span th:text="${#dates.format(message.postedAt,'dd-MM-yyyy HH:mm')}"></span>
+                        <span th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></span>
                     </a>
                 </div>
                 <span class="article-description" th:text="${message.description}"></span>
