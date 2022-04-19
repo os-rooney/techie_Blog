@@ -17,7 +17,7 @@
         <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
       </li>
       <li th:if="${sessionUser != null}">
-        <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">author-list</a>
+        <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">User-list</a>
       </li>
       <li>
         <form th:if="${sessionUser != null}" method="post" th:action="@{/logout}">
