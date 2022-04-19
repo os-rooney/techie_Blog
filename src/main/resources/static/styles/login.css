@@ -4,25 +4,10 @@
     #6998AB
     #B1D0E0
 */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    scroll-behavior: smooth;
-    color: #B1D0E0;
-    background-color: #27496D;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-h2 {
+.login {
     font-size: 1.4rem;
     margin-left: 1.625rem;
-    padding: 1rem 0rem;
+    padding: 8vh 0rem 1rem 0rem;
 }
 
 /* Login Box */

@@ -2,18 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" th:href="@{styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/register.css}"/>
+    <!-- Font Awesome  Menü Leiste? -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>Registrieren</h1>
-    <form th:action="@{/register}" th:object="${registration}" method="post">
-        Username: <input type="text" th:field="*{username}"><br/>
-        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-        Passwort: <input type="password" th:field="*{password1}"><br/>
-        <p th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}"></p>
-        Passwort nochmal: <input type="password" th:field="*{password2}"><br/>
-        <p th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
-        <button type="submit">Sign up</button>
-    </form>
+    <!-- Navbar -->
+    <div th:replace="navbar::navbar"></div>
+    <div class="container">
+        <form th:action="@{/register}" th:object="${registration}" method="post">
+            <h1>Sign up</h1>
+            <div class="form-content">
+                <label>Username:
+                    <input type="text" th:field="*{username}" autofocus>
+                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                </label>
+                <label>Password:
+                    <input type="password" th:field="*{password1}">
+                    <p th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}"></p>
+                </label>
+                <label>repeat Password:
+                    <input type="password" th:field="*{password2}">
+                    <p th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
+                </label>
+                <button type="submit">Sign up</button>
+            </div>
+        </form>
+    </div>
+    <!-- footer -->
+    <div th:replace="footer::footer"></div>
+    <!-- JavaScript -->
+    <script type="text/javascript" th:src="@{/js/app.js}"></script>
 </body>
 </html>

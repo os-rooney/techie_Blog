@@ -13,12 +13,14 @@ body{
 }
 /* Navbar Styles */
 .navbar{
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-content: center;
     background-color: #00909E;
     color: #142850;
     height: 7vh;
+    width: 100%;
 }
 .logo{
     display: flex;
