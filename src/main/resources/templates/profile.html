@@ -7,24 +7,26 @@
     <title>Profile</title>
     <!-- CSS only -->
     <link rel="stylesheet" th:href="@{/styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/profile.css}"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
-    <h1 th:text="${user.username}"></h1>
-    <a th:href="@{/}">Home</a>
-    <hr>
-    <h3>Articles</h3>
-    <div th:each="message: ${messages}">
-        <strong th:text="${#dates.format(message.postedAt)}"></strong>
-        <span th:text="${message.title}"></span>
-        <span th:text="${message.description}"></span>
-        <span th:text="${message.content}"></span>
-        <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">
-            <button type="submit">Delete</button>
-        </form>
+    <div class="container">
+        <h1>All articles of <span th:text="${user.username}"></span></h1>
+        <hr>
+        <h3>Articles</h3>
+        <div th:each="message: ${messages}">
+            <strong th:text="${#dates.format(message.postedAt)}"></strong>
+            <span th:text="${message.title}"></span>
+            <span th:text="${message.description}"></span>
+            <span th:text="${message.content}"></span>
+            <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
     </div>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
