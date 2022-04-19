@@ -1,0 +1,31 @@
+.container{
+    padding-top: 8vh;
+    width: 90%;
+    margin: 0 auto;
+}
+.container ol{
+    margin-top: 2rem;
+}
+.container ol li{
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.container ol li span {
+    margin-right: 1rem;
+}
+.container ol li a{
+    color: #DAE1E7;
+}
+.container img{
+    margin: 2rem auto;
+    width: 75%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container h4{
+    text-decoration: underline;
+}
+footer{
+    position: absolute;
+}

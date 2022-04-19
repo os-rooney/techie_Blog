@@ -7,18 +7,24 @@
     <title>Author-List</title>
     <!-- CSS only -->
     <link rel="stylesheet" th:href="@{/styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/author-list.css}"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
-    <ul>
-        <li th:each="registeredUser:${registeredUsers}">
-            <span th:text="${registeredUser.getUsername()}"></span>
-            <a th:href="@{/changeToAdmin/{userId}(userId = ${registeredUser.getId()})}">change role to admin</a>
-        </li>
-    </ul>
+    <div class="container">
+        <h2>registered User</h2>
+        <img th:src="@{img/changeToAdmin.svg}" src="" alt="an image that shows the admin changing roles of users to make them admins too">
+        <h4>list of all registered users:</h4>
+        <ol>
+            <li th:each="registeredUser:${registeredUsers}">
+                <span th:text="${registeredUser.getUsername()}"></span>
+                <a th:href="@{/changeToAdmin/{userId}(userId = ${registeredUser.getId()})}">change role to admin</a>
+            </li>
+        </ol>
+    </div>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
     <!-- JavaScript -->
