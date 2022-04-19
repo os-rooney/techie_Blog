@@ -10,6 +10,9 @@
       <li>
         <a th:href="@{/}">home</a>
       </li>
+      <li>
+        <a th:href="@{/archive}">archive</a>
+      </li>
       <li  th:attr="class=${sessionUser != null ? 'hide' : ''}">
         <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
       </li>
