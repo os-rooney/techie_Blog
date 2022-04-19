@@ -7,38 +7,55 @@
     <title>Nachricht schreiben</title>
     <!-- CSS only -->
     <link rel="stylesheet" th:href="@{/styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/message.css}"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
-    <h1>Write a new article</h1>
-    <!-- update article -->
+        <!-- update article -->
     <div th:if="${message != null}">
-        <form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
-            <input th:field="*{title}"></input>
-            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-            <input th:field="*{description}"></input>
-            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-            <textarea th:field="*{content}"></textarea>
-            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-            <br>
-            <button type="submit">Send</button>
-        </form>
+        <div class="container">
+            <h1>Write a new article</h1>
+            <form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
+                <label>Title:
+                    <input th:field="*{title}">
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                </label>
+                <label>Description:
+                    <input th:field="*{description}">
+                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                </label>
+                <label>Content:
+                    <textarea th:field="*{content}"></textarea>
+                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+                </label>
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
     </div>
     <!-- add article -->
     <div th:if="${messageDTO != null}">
-        <form th:action="@{/message}" th:object="${messageDTO}" method="post">
-            <input th:field="*{title}"></input>
-            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-            <input th:field="*{description}"></input>
-            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-            <textarea th:field="*{content}"></textarea>
-            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-            <br>
-            <button type="submit">Send</button>
-        </form>
+        <div class="container">
+            <h1>Update article</h1>
+            <form th:action="@{/message}" th:object="${messageDTO}" method="post">
+                <label>Title:
+                    <input th:field="*{title}">
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                </label>
+                <label>Description:
+                    <input th:field="*{description}">
+                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                </label>
+                <label>Content:
+                    <textarea th:field="*{content}"></textarea>
+                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+                </label>
+                <button type="submit">Update</button>
+            </form>
+        </div>
     </div>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
