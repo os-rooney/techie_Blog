@@ -21,6 +21,7 @@ body{
     color: #142850;
     height: 7vh;
     width: 100%;
+    z-index: 3;
 }
 .logo{
     display: flex;
