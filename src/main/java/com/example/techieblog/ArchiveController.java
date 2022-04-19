@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
-public class HomeController {
+public class ArchiveController {
 
     private MessageRepository messageRepository;
 
     @Autowired
-    public HomeController(MessageRepository messageRepository) {
+    public ArchiveController(MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
     }
 
-    @GetMapping("/")
-    public String home(@ModelAttribute("sessionUser") User sessionUser, Model model) {
+    @GetMapping("/archive")
+    public String archive(@ModelAttribute("sessionUser") User sessionUser, Model model) {
         model.addAttribute("messages", messageRepository.findAllByOrderByPostedAtDesc());
-        return "home";
+        return "archive";
     }
-
 }
