@@ -33,6 +33,7 @@
                     <h3 th:text="${message.title}"></h3>
                 </a>
                 <div class="author-date">
+                    <img class="robot" th:src="@{img/robot.svg}" src="" alt="user avatar">
                     <a class="article-author" th:href="@{/profile/{username}(username=${message.user.username})}">
                         <strong th:text="${message.user.username}"></strong>
                     </a>

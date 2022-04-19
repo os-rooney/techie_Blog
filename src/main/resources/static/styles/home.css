@@ -60,3 +60,8 @@ main article{
     color: #142850;
     cursor: pointer;
 }
+.robot{
+    display: inline-block;
+    width: 1.625rem;
+    margin-right: -.2rem;
+}
