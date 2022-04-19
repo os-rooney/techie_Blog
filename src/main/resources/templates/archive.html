@@ -18,6 +18,9 @@
     <!-- show all articles -->
     <div class="container">
         <h1>All articles</h1>
+        <div class="svg">
+            <img src="" th:src="@{img/archive.svg}" alt="an illustration of a person with a book">
+        </div>
         <article th:each="message: ${messages}">
             <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
                 <h3 th:text="${message.title}"></h3>
