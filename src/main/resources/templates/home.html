@@ -17,7 +17,7 @@
     <main>
         <h2 class="welcome-headline" th:text="${'Techie blog'}" th:if="${sessionUser == null}"></h2>
         <h2 class="welcome-text" th:text="${'is an ambitious multimedia effort founded three days ago to examine how technology will change life in the future'}" th:if="${sessionUser == null}"></h2>
-        <h2 th:text="${'Welcome, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
+        <h2 class="welcome-reg" th:text="${'Welcome, ' + sessionUser.username}" th:if="${sessionUser != null}"></h2>
 
         <div class="svg">
             <img th:src="@{/img/techieblog.svg}" src="" alt="a svg pic with a women holding a cup of coffee and checks out the techie blog"/>
