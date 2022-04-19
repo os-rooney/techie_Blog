@@ -8,6 +8,10 @@
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
 }
+.container form label:not(:first-child){
+    display: block;
+    margin-top: 1.625rem;
+}
 .container form input, .container form textarea{
     border: none;
     background-color: transparent;
@@ -16,9 +20,9 @@
     padding-top: 1rem;
     font-size: 1rem;
     color: #B1D0E0;
+    height: 2rem;
 }
-.container form textarea{
-    vertical-align: bottom;
+.container .textarea{
 }
 .container form input[type="text"]:focus{
     outline: none;
