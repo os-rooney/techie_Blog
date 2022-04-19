@@ -3,19 +3,7 @@
     width: 90%;
     margin: 0 auto;
 }
-.container ol{
-    margin-top: 2rem;
-}
-.container ol li{
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
-.container ol li span {
-    margin-right: 1rem;
-}
-.container ol li a{
-    color: #DAE1E7;
-}
+
 .container img{
     margin: 2rem auto;
     width: 75%;
@@ -26,6 +14,33 @@
 .container h4{
     text-decoration: underline;
 }
+table{
+    width: 100%;
+    margin: 1rem auto 2rem auto;
+}
+table thead tr th{
+    padding: .625rem;
+}
+table tbody tr td{
+    text-align: center;
+    padding: .625rem;
+}
+table tbody tr:nth-child(odd){
+    background-color: #B1D0E0;
+    color: #142850;
+}
+table tbody tr:nth-child(even){
+    background-color: #43b4bf;
+    color: #142850;
+}
+table tbody tr td button{
+    color: #142850;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    font-weight: bold;
+}
 footer{
-    position: absolute;
+    position: unset;
 }

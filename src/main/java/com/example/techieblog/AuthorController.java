@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthorController {
@@ -21,7 +22,7 @@ public class AuthorController {
         return "author-list";
     }
 
-    @GetMapping("/changeToAdmin/{userId}")
+    @PostMapping("/changeToAdmin/{userId}")
     public String authorList(Model model, @PathVariable long userId){
         User changeRole = userRepository.findUserById(userId);
         changeRole.setRole("admin");
