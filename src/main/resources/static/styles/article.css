@@ -57,10 +57,8 @@
     margin: 0.4rem 0rem;
 }
 /*write comment block*/
-.comment-field{
-    high: 3rem;
-    width: 95%;
-
+.comment-container{
+    margin-bottom: 2rem;
 }
 .comment-container input[type="submit"]{
     outline: none;
@@ -72,6 +70,28 @@
     box-shadow: .1rem .1rem .3rem #142850;
     margin-top: 1rem;
     /*TODO Button nach rechts verschieben!*/
+}
+.add-comment{
+    width: 90vw;
+}
+.add-comment form label input{
+    margin-top: 1rem;
+}
+.add-comment form{
+    width: 100%;
+}
+.add-comment form label{
+    display: inline-block;
+    padding-top: .425rem;
+}
+.add-comment form label textarea{
+    width: 100%;
+    margin-top: 1rem;
+}
+.add-comment form > input{
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
 }
 /*show comment*/
 .comment-container div form button{

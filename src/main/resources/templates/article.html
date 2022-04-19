@@ -28,11 +28,11 @@
 </div>
 <!-- add new Comments -->
 <div class="comment-container">
-    <div th:if="${sessionUser != null}">
+    <div class="add-comment" th:if="${sessionUser != null}">
         <form th:object="${comment}" action="#" th:action="@{/article/{messageId} (messageId=${message.getId()})}"
               method="post">
-            <label>New comment:
-                <input class="comment-field" type="text" th:field="*{commentText}">
+            <label>add a new comment:
+                <textarea cols="30" rows="4" class="comment-field" type="text" th:field="*{commentText}"></textarea>
             </label>
             <input type="submit" value="post comment">
         </form>
