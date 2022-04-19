@@ -1,9 +1,50 @@
 .container{
-    padding-top: 8vh;
+    padding: 2rem;
+    padding-top: 10vh;
 }
 .container h1 {
-    margin-left: 1rem;
+    padding-bottom: 2rem;
+    font-size: 1.325rem;
 }
 .container h1 span{
     color: #DAE1E7;
+    font-size: 1.625rem;
+}
+.container .article{
+    background-color: #00909E;
+    padding: 1rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .2rem #142850;
+    margin-bottom: 1.625rem;
+}
+.article .article-title{
+    font-size: 1.325rem;
+    display: block;
+    color: #DAE1E7;
+    padding-bottom: .2rem;
+}
+.article .article-date{
+    font-size: .8rem;
+    font-weight: 300;
+    display: block;
+    padding-bottom: 1rem;
+}
+.article .article-description{
+    color: #DAE1E7;
+}
+.delete-button{
+    outline: none;
+    border: none;
+    background-color: #B1D0E0;
+    color: #142850;
+    padding: .425rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+    margin-top: 1rem;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+}
+footer{
+    position: absolute;
 }
