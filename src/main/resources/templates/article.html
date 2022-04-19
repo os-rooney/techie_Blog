@@ -7,26 +7,32 @@
     <title>Blogpost</title>
     <!-- CSS only -->
     <link rel="stylesheet" th:href="@{/styles/navbar-footer.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/article.css}"/>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-    <!-- Navbar -->
-    <div th:replace="navbar::navbar"></div>
-    <div th:object="${message}">
-        <strong th:text="${#dates.format(message.postedAt)}"></strong>
-        <span th:text="*{title}"></span>
-        <span th:text="${message.description}"></span>
-        <span th:text="${message.content}"></span>
-        <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
-            <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
-        </form>
-    </div>
-    <!-- add new Comments -->
+<!-- Navbar -->
+<div th:replace="navbar::navbar"></div>
+<!-- Show Blogtext -->
+<div class="article-container" th:object="${message}">
+    <h2 th:text="*{title}"></h2>
+    <strong class="date"
+            th:text="${message.getUser().getUsername()} +' am '+ ${#dates.format(message.postedAt)}"></strong>
+    <p th:text="${message.content}"></p>
+    <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
+        <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
+    </form>
+</div>
+<!-- add new Comments -->
+<div class="comment-container">
     <div th:if="${sessionUser != null}">
-        <form th:object="${comment}" action="#" th:action="@{/article/{messageId} (messageId=${message.getId()})}" method="post">
-            <label>Comment:
-                <input type="text" th:field="*{commentText}">
+        <form th:object="${comment}" action="#" th:action="@{/article/{messageId} (messageId=${message.getId()})}"
+              method="post">
+            <label>New comment:
+                <input class="comment-field" type="text" th:field="*{commentText}">
             </label>
             <input type="submit" value="post comment">
         </form>
@@ -34,22 +40,27 @@
     <!-- Show Comments -->
     <div th:object="${comments}" th:each="comment : ${comments}">
         <span th:text="${comment.getComment()}"></span>
+        <span th:text="${comment.getComment()}"></span>
 
         <div th:if="${sessionUser != null}">
-            <form th:if="${comment.user.getId() == sessionUser.id && !sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
+            <form th:if="${comment.user.getId() == sessionUser.id && !sessionUser.getRole().equals('admin')}"
+                  method="post"
+                  th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
                 <button type="submit">Delete</button>
             </form>
         </div>
 
         <div th:if="${sessionUser != null}">
-            <form th:if="${sessionUser.getRole().equals('admin')}" method="post" th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
+            <form th:if="${sessionUser.getRole().equals('admin')}" method="post"
+                  th:action="@{/deleteComment(commentId=${comment.getId()}, messageId=${message.getId()})}">
                 <button type="submit">Delete</button>
             </form>
         </div>
     </div>
-    <!-- footer -->
-    <div th:replace="footer::footer"></div>
-    <!-- JavaScript -->
-    <script type="text/javascript" th:src="@{/js/app.js}"></script>
+</div>
+<!-- footer -->
+<div th:replace="footer::footer"></div>
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
 </body>
 </html>

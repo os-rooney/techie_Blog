@@ -1,0 +1,86 @@
+/*Article-Style*/
+.article-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-top: 10vh;
+
+}
+.article-container p{
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    text-align: justify;
+    text-align-last: justify;
+}
+.date {
+    font-size: 0.8rem;
+    font-style: italic;
+    padding-top: 0.4rem;
+    padding-bottom: 1rem;
+}
+.article-container form{
+    position: relative;
+}
+.article-container button {
+    position: absolute;
+    right: 2rem;
+    outline: none;
+    border: none;
+    background-color: #B1D0E0;
+    color: #142850;
+    padding: .425rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+
+
+}
+.article-container button:hover {
+    transform: scale(1.1);
+}
+/*Comment-Style*/
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-top: 3rem;
+
+}
+
+.comment-container >div{
+    background-color: #00909E;
+    padding: 0.425rem 1rem 1rem 1rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+    width: 95%;
+    margin: 0.4rem 0rem;
+}
+/*write comment block*/
+.comment-field{
+    high: 3rem;
+    width: 95%;
+
+}
+.comment-container input[type="submit"]{
+    outline: none;
+    border: none;
+    background-color: #B1D0E0;
+    color: #142850;
+    padding: .425rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+    margin-top: 1rem;
+    /*TODO Button nach rechts verschieben!*/
+}
+/*show comment*/
+.comment-container div form button{
+    outline: none;
+    border: none;
+    background-color: #B1D0E0;
+    color: #142850;
+    padding: .425rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .3rem #142850;
+    margin-top: 1rem;
+}
