@@ -10,13 +10,13 @@
       <li>
         <a th:href="@{/}">home</a>
       </li>
-      <li>
-        <a th:href="@{/login}" th:if="${sessionUser == null}"  th:attr="class=${sessionUser != null ? 'hide' : ''}">login</a>
+      <li  th:attr="class=${sessionUser != null ? 'hide' : ''}">
+        <a th:href="@{/login}" th:if="${sessionUser == null}">login</a>
       </li>
-      <li th:attr="class=${sessionUser != null ? 'hide' : ''}" >
+      <li th:attr="class=${sessionUser != null ? 'hide' : ''}">
         <a th:href="@{/register}"  th:if="${sessionUser == null}">sign up</a>
       </li>
-      <li th:if="${sessionUser != null}" th:attr="class=${sessionUser != null ? 'hide' : ''}">
+      <li th:if="${sessionUser != null}">
         <a th:if="${sessionUser.getRole().equals('admin')}" th:href="@{/author}">User-list</a>
       </li>
       <li>
