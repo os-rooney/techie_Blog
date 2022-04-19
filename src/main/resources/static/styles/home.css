@@ -7,6 +7,16 @@ main h2{
     font-size: 1.4rem;
     padding: 1.225rem 1rem 1rem 1rem;
 }
+.svg{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.svg img{
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* new article section */
 .new-article a{
     margin: .625rem 0 3rem 1.625rem;
@@ -21,12 +31,12 @@ main h2{
 /* Articles Styles */
 main article{
     width: 20rem;
-    margin-left: 1.625rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     padding: 1rem;
     background-color: #00909E;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
-    margin-bottom: 1rem;
     color: #DAE1E7;
 }
 .article-title {

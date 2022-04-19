@@ -22,22 +22,27 @@
                 <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write an article</a>
         </div>
 
+        <div class="svg">
+            <img th:src="@{/img/techieblog.svg}" alt="a svg pic with a women holding a cup of coffee and checks out the techie blog"/>
+        </div>
 
-        <h2>Latest articles:</h2>
-        <article th:each="message: ${messages}">
-            <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
-                <h3 th:text="${message.title}"></h3>
-            </a>
-            <div class="author-date">
-                <a class="article-author" th:href="@{/profile/{username}(username=${message.user.username})}">
-                    <strong th:text="${message.user.username}"></strong>
+        <div class="container">
+            <h2>Latest articles:</h2>
+            <article th:each="message: ${messages}">
+                <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
+                    <h3 th:text="${message.title}"></h3>
                 </a>
-                <a class="article-date" th:href="@{/profile/{username}(username=${message.user.username})}">
-                    <span th:text="${#dates.format(message.postedAt,'dd-MM-yyyy HH:mm')}"></span>
-                </a>
-            </div>
-            <span class="article-description" th:text="${message.description}"></span>
-        </article>
+                <div class="author-date">
+                    <a class="article-author" th:href="@{/profile/{username}(username=${message.user.username})}">
+                        <strong th:text="${message.user.username}"></strong>
+                    </a>
+                    <a class="article-date" th:href="@{/profile/{username}(username=${message.user.username})}">
+                        <span th:text="${#dates.format(message.postedAt,'dd-MM-yyyy HH:mm')}"></span>
+                    </a>
+                </div>
+                <span class="article-description" th:text="${message.description}"></span>
+            </article>
+        </div>
     </main>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
