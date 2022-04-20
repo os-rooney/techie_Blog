@@ -29,8 +29,10 @@ public class AuthorController {
             User changeRole = userRepository.findUserById(userId);
             changeRole.setRole("admin");
             userRepository.save(changeRole);
-            model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
+        }else{
+            return "redirect:/";
         }
-        return "author-list";
+        model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
+        return "redirect:/author";
     }
 }
