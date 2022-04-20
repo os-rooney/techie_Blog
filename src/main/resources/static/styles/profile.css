@@ -1,3 +1,6 @@
+main{
+    min-height: calc(100vh - 5vh);
+}
 .container{
     padding: 2rem;
     padding-top: 10vh;
@@ -45,4 +48,7 @@
     left: 100%;
     transform: translateX(-100%);
 }
+/* min-width 1024px*/
+@media screen and (min-width: 62em){
 
+}

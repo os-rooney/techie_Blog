@@ -14,19 +14,21 @@
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
-    <div class="container">
-        <h1>All articles of <span th:text="${user.username}"></span></h1>
-        <div class="articles">
-            <div class="article" th:each="message: ${messages}">
-                <a th:href="@{/article/{messageID}(messageID=${message.getId()})}" class="article-title"  th:text="${message.title}"></a>
-                <span class="article-date" th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></span>
-                <span class="article-description" th:text="${message.description}"></span>
-                <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">
-                    <button class="delete-button" type="submit">Delete</button>
-                </form>
+    <main>
+        <div class="container">
+            <h1>All articles of <span th:text="${user.username}"></span></h1>
+            <div class="articles">
+                <div class="article" th:each="message: ${messages}">
+                    <a th:href="@{/article/{messageID}(messageID=${message.getId()})}" class="article-title"  th:text="${message.title}"></a>
+                    <span class="article-date" th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></span>
+                    <span class="article-description" th:text="${message.description}"></span>
+                    <form th:if="${user == sessionUser}" method="post" th:action="@{/messageDelete(messageId=${message.id})}">
+                        <button class="delete-button" type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
     <!-- JavaScript -->

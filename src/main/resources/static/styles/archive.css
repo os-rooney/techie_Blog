@@ -1,6 +1,5 @@
 /* Hero Section */
 main{
-    min-height: 88vh;
     padding-top: 8vh;
     min-height: calc(100vh - 5vh);
 }
