@@ -1,6 +1,6 @@
 package com.example.techieblog;
 
-import com.example.techieblog.user.AdminSecurityService;
+import com.example.techieblog.user.AdminService;
 import com.example.techieblog.user.User;
 import com.example.techieblog.user.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class AuthorController {
 
     @GetMapping("/author")
     public String authorList(Model model, @ModelAttribute("sessionUser") User sessionUser ){
-        if(!AdminSecurityService.adminCheck(sessionUser)){
+        if(!AdminService.adminCheck(sessionUser)){
             return "redirect:/";
         }
         model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
@@ -29,16 +29,10 @@ public class AuthorController {
 
     @PostMapping("/changeToAdmin/{userId}")
     public String authorList(Model model, @PathVariable long userId, @ModelAttribute("sessionUser") User sessionUser){
-
-        if(!AdminSecurityService.adminCheck(sessionUser)){
+        if(!AdminService.adminCheck(sessionUser)){
             return "redirect:/";
         }
-
-        User changeRole = userRepository.findUserById(userId);
-        changeRole.setRole("admin");
-        userRepository.save(changeRole);
-        model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
-
+        AdminService.upgradeUserToAdmin(sessionUser, userRepository, userId, model);
         return "redirect:/author";
     }
 }
