@@ -17,6 +17,10 @@ main{
     font-size: 1.4rem;
     padding: 1.225rem 1rem 2rem 1rem;
 }
+.latest-article{
+    text-align: center;
+    padding-bottom: 1rem;
+}
 .svg{
     width: 100%;
     margin-bottom: 1rem;
@@ -61,6 +65,16 @@ main article{
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
     color: #DAE1E7;
+}
+.welcome-headline{
+    font-size: 2rem;
+}
+.welcome-text{
+    width: 40%;
+}
+.welcome-reg{
+    font-size: 2rem;
+    padding-bottom: 2rem;
 }
 .article-title {
     color: #142850;
