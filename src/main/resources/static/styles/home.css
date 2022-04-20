@@ -69,9 +69,7 @@ main article{
 .welcome-headline{
     font-size: 2rem;
 }
-.welcome-text{
-    width: 40%;
-}
+
 .welcome-reg{
     font-size: 2rem;
     padding-bottom: 2rem;
@@ -115,6 +113,9 @@ main article{
     }
     main h2:first-child{
         padding-bottom: 1rem;
+    }
+    .welcome-text{
+        width: 40%;
     }
     .svg{
         max-width: 25rem;
