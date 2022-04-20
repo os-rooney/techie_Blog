@@ -14,49 +14,52 @@
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
+    <main>
         <!-- update article -->
-    <div th:if="${message != null}">
-        <div class="container">
-            <h1>Update article</h1>
-            <form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
-                <label>Title:
-                    <input th:field="*{title}">
-                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-                </label>
-                <label>Description:
-                    <input th:field="*{description}">
-                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-                </label>
-                <label>Content:
-                    <textarea class="textarea" th:field="*{content}"></textarea>
-                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-                </label>
-                <br>
-                <button type="submit">Update</button>
-            </form>
+        <div th:if="${message != null}">
+            <div class="container">
+                <h1>Update article</h1>
+                <form th:action="@{/message/{id}(id=${message.getId()})}" th:object="${message}" method="post">
+                    <label>Title:
+                        <input th:field="*{title}">
+                        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                    </label>
+                    <label>Description:
+                        <input th:field="*{description}">
+                        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                    </label>
+                    <label>Content:
+                        <textarea class="textarea" th:field="*{content}"></textarea>
+                        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+                    </label>
+                    <br>
+                    <button type="submit">Update</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- add article -->
-    <div th:if="${messageDTO != null}">
-        <div class="container">
-            <h1>Write a new article</h1>
-            <form th:action="@{/message}" th:object="${messageDTO}" method="post">
-                <label>Title:
-                    <input th:field="*{title}">
-                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-                </label>
-                <label>Description:
-                    <input th:field="*{description}">
-                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-                </label>
-                <label>Content:
-                    <textarea th:field="*{content}"></textarea>
-                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-                </label>
-                <button type="submit">Save</button>
-            </form>
+        <!-- add article -->
+        <div th:if="${messageDTO != null}">
+            <div class="container">
+                <h1>Write a new article</h1>
+                <form th:action="@{/message}" th:object="${messageDTO}" method="post">
+                    <label>Title:
+                        <input th:field="*{title}">
+                        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                    </label>
+                    <label>Description:
+                        <input th:field="*{description}">
+                        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                    </label>
+                    <label>Content:
+                        <textarea th:field="*{content}"></textarea>
+                        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+                    </label>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
         </div>
-    </div>
+
+    </main>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
     <!-- JavaScript -->
