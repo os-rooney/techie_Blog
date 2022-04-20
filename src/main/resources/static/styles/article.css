@@ -101,7 +101,7 @@
     display: block;
     font-size: 0.8rem;
     font-style: italic;
-    padding: 0.3rem 0rem 0.4rem 0rem;
+    padding: 0.3rem 0 0.4rem 0;
     color:#142850;
 }
 .comment-user-date span{
@@ -124,4 +124,13 @@
     display: inline-block;
     padding-top: .425rem;
 }
-
+/* min-width 1200px */
+@media screen and (min-width: 72em){
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
