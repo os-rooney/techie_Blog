@@ -1,3 +1,6 @@
+main{
+    min-height: calc(100vh - 5vh);
+}
 /*Article-Style*/
 .article-container {
     display: flex;
@@ -10,8 +13,7 @@
 .article-container p{
     padding-right: 1rem;
     padding-bottom: 1rem;
-    text-align: justify;
-    text-align-last: justify;
+    text-align: left;
 }
 .date {
     font-size: 0.8rem;
@@ -134,13 +136,13 @@
         align-items: center;
     }
     .article-container{
-        width: 70%;
+        max-width: 50em;
     }
     .article-container button{
         padding-left: 1rem;
         padding-right: 1rem;
     }
     .comment-container{
-        width: 60%;
+        max-width: 28em;
     }
 }

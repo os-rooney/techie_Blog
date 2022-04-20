@@ -78,7 +78,7 @@ main article{
 @media screen and (min-width: 64em){
     .container{
         max-width: 62em;
-        margin: 0   auto;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -94,14 +94,11 @@ main article{
         margin-bottom: 4rem;
     }
     .articles{
-        width: 62em;
+        max-width: 62em;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-content: space-around;
         margin-bottom: 5rem;
-    }
-    footer{
-        position: unset;
     }
 }
