@@ -24,7 +24,7 @@
         </div>
 
         <!-- write a new article section -->
-        <div th:if="${sessionUser != null}" class="new-article">
+        <div th:if="${sessionUser != null && sessionUser.getRole().equals('admin')}" class="new-article">
             <p>Share your thoughts and knowledge with the world:</p>
             <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write a new article</a>
         </div>

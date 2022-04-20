@@ -14,7 +14,6 @@
     text-align-last: justify;
 }
 .date {
-
     font-size: 0.8rem;
     font-style: italic;
     padding-top: 0.4rem;
@@ -68,7 +67,6 @@
     padding: .425rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
-    margin-top: 1rem;
 }
 .add-comment{
     width: 90vw;
@@ -79,6 +77,7 @@
 }
 .add-comment form{
     width: 100%;
+    position: relative;
 }
 .add-comment form label{
     display: inline-block;
@@ -90,11 +89,10 @@
     margin-top: 1rem;
 }
 .add-comment form > input{
-    position: relative;
+    position: absolute;
     left: 100%;
     transform: translateX(-100%);
 }
-
 
 /*show comment*/
 .comment-user-date a{
@@ -124,13 +122,25 @@
     display: inline-block;
     padding-top: .425rem;
 }
-/* min-width 1200px */
-@media screen and (min-width: 72em){
+/* min-width 1024px */
+@media screen and (min-width: 64em){
+    main{
+        min-height: calc(100vh - 5vh);
+    }
     .container{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+    }
+    .article-container{
+        width: 70%;
+    }
+    .article-container button{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .comment-container{
+        width: 60%;
     }
 }
