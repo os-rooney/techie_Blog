@@ -20,7 +20,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(@ModelAttribute("sessionUser") User sessionUser, Model model) {
-        model.addAttribute("messages", messageRepository.findAllByOrderByPostedAtDesc());
+       model.addAttribute("messages", messageRepository.findTop5ByOrderByPostedAtDesc());
+//        model.addAttribute("messages", messageRepository.findAllByOrderByPostedAtDesc());
         return "home";
     }
 
