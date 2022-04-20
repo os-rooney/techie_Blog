@@ -1,5 +1,6 @@
 package com.example.techieblog;
 
+import com.example.techieblog.user.AdminSecurityService;
 import com.example.techieblog.user.User;
 import com.example.techieblog.user.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -18,19 +19,26 @@ public class AuthorController {
     }
 
     @GetMapping("/author")
-    public String authorList(Model model){
+    public String authorList(Model model, @ModelAttribute("sessionUser") User sessionUser ){
+        if(!AdminSecurityService.adminCheck(sessionUser)){
+            return "redirect:/";
+        }
         model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
         return "author-list";
     }
 
     @PostMapping("/changeToAdmin/{userId}")
     public String authorList(Model model, @PathVariable long userId, @ModelAttribute("sessionUser") User sessionUser){
-        if(sessionUser.getRole().equals("admin")) {
-            User changeRole = userRepository.findUserById(userId);
-            changeRole.setRole("admin");
-            userRepository.save(changeRole);
-            model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
+
+        if(!AdminSecurityService.adminCheck(sessionUser)){
+            return "redirect:/";
         }
-        return "author-list";
+
+        User changeRole = userRepository.findUserById(userId);
+        changeRole.setRole("admin");
+        userRepository.save(changeRole);
+        model.addAttribute("registeredUsers", userRepository.findAllByRole("commentOnly"));
+
+        return "redirect:/author";
     }
 }
