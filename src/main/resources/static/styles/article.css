@@ -14,10 +14,14 @@
     text-align-last: justify;
 }
 .date {
+
     font-size: 0.8rem;
     font-style: italic;
     padding-top: 0.4rem;
     padding-bottom: 1rem;
+}
+.date a{
+    color:#B1D0E0;
 }
 .article-container form{
     position: relative;
@@ -32,8 +36,6 @@
     padding: .425rem;
     border-radius: .4rem;
     box-shadow: .1rem .1rem .3rem #142850;
-
-
 }
 .article-container button:hover {
     transform: scale(1.1);
@@ -45,9 +47,7 @@
     justify-content: center;
     padding-left: 1rem;
     padding-top: 3rem;
-
 }
-
 .comment-container > div{
     background-color: #00909E;
     padding: 0.425rem 1rem 1rem 1rem;
@@ -75,6 +75,7 @@
 }
 .add-comment form label input{
     margin-top: 1rem;
+
 }
 .add-comment form{
     width: 100%;
@@ -82,6 +83,7 @@
 .add-comment form label{
     display: inline-block;
     padding-top: .425rem;
+
 }
 .add-comment form label textarea{
     width: 100%;
@@ -92,7 +94,19 @@
     left: 100%;
     transform: translateX(-100%);
 }
+
+
 /*show comment*/
+.comment-user-date a{
+    display: block;
+    font-size: 0.8rem;
+    font-style: italic;
+    padding: 0.3rem 0rem 0.4rem 0rem;
+    color:#142850;
+}
+.comment-user-date span{
+    color:#142850;
+}
 .comment-container form button{
     outline: none;
     border: none;

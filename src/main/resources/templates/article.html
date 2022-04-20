@@ -19,8 +19,12 @@
 <!-- Show Blogtext -->
 <div class="article-container" th:object="${message}">
     <h2 th:text="*{title}"></h2>
-    <strong class="date"
-            th:text="${message.getUser().getUsername()} +' am '+ ${#dates.format(message.postedAt)}"></strong>
+    <div class="date">
+        <a th:href="@{/profile/{username}(username=${message.user.username})}">
+            <strong th:text="${message.getUser().getUsername()}"></strong>
+        </a>
+        <strong th:text="'  am '+ ${#dates.format(message.postedAt)}"></strong>
+    </div>
     <p th:text="${message.content}"></p>
     <form th:if="${sessionUser!= null}" th:action="@{/messageUpdate/{messageId}(messageId=${message.id})}">
         <button th:if="${sessionUser.getRole().equals('admin')}" type="submit">edit</button>
@@ -39,8 +43,11 @@
     </div>
     <!-- Show Comments -->
     <div class="show-comment" th:object="${comments}" th:each="comment : ${comments}">
-        <span th:text="${comment.getUser().username}"></span>
-        <span th:text="${comment.getComment()}"></span>
+        <strong class="comment-user-date">
+            <span th:text="${comment.getUser().username}"></span>
+            <a th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></a>
+        </strong>
+        <a th:text="${comment.getComment()}"></a>
 
         <div th:if="${sessionUser != null}">
             <form th:if="${comment.user.getId() == sessionUser.id && !sessionUser.getRole().equals('admin')}"
