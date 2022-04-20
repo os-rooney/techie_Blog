@@ -124,6 +124,17 @@ main{
     display: inline-block;
     padding-top: .425rem;
 }
+/* min-width 768px*/
+@media screen and (min-width: 48em){
+    .article-container{
+        width: 34em;
+        margin: 0 auto;
+    }
+    .comment-container{
+        width: 60%;
+        margin: 0 auto;
+    }
+}
 /* min-width 1024px */
 @media screen and (min-width: 64em){
     main{
@@ -136,13 +147,17 @@ main{
         align-items: center;
     }
     .article-container{
-        max-width: 50em;
+        width: 54em;
     }
     .article-container button{
         padding-left: 1rem;
         padding-right: 1rem;
     }
     .comment-container{
-        max-width: 28em;
+        width: 30em;
+    }
+    .comment-container textarea{
+        border-radius: .4rem;
+        box-shadow: .1rem .1rem .2rem #142850;
     }
 }
