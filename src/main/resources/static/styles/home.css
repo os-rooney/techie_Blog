@@ -87,3 +87,39 @@ main article{
     width: 1.625rem;
     margin-right: -.2rem;
 }
+/* min-width: 1024px */
+@media screen and (min-width: 62em){
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    main h2{
+        width: 70%;
+        text-align: center;
+    }
+    main h2:first-child{
+        padding-bottom: 1rem;
+    }
+    .svg{
+        width: 30rem;
+    }
+    .latest-article{
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+    }
+    .new-article .new-article-btn{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 1rem auto;
+    }
+    .container{
+        width: 62em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+}

@@ -26,11 +26,11 @@
         <!-- write a new article section -->
         <div th:if="${sessionUser != null && sessionUser.getRole().equals('admin')}" class="new-article">
             <p>Share your thoughts and knowledge with the world:</p>
-            <a th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write a new article</a>
+            <a class="new-article-btn" th:href="@{/message}" th:if="${sessionUser.getRole().equals('admin')}">write a new article</a>
         </div>
         <!-- show latest articles section -->
+        <h2 class="latest-article">Latest articles:</h2>
         <div class="container">
-            <h2>Latest articles:</h2>
             <article th:each="message: ${messages}">
                 <a class="article-title" th:href="@{/article/{messageID}(messageID=${message.getId()})}">
                     <h3 th:text="${message.title}"></h3>

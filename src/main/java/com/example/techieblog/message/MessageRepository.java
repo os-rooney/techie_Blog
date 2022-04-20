@@ -11,5 +11,5 @@ public interface MessageRepository extends CrudRepository<Message, Long> {
     List<Message> findAllByOrderByPostedAtDesc();
     List<Message> findMessagesByUserOrderByPostedAtDesc(User user);
     Message findMessageById(long messageID);
-    List<Message> findTop5ByOrderByPostedAtDesc();
+    List<Message> findTop6ByOrderByPostedAtDesc();
 }
