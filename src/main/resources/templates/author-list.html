@@ -14,18 +14,19 @@
 <body>
     <!-- Navbar -->
     <div th:replace="navbar::navbar"></div>
-    <div class="container">
-        <h2>registered User</h2>
-        <img th:src="@{img/changeToAdmin.svg}" src="" alt="an image that shows the admin changing roles of users to make them admins too">
-        <h4>list of all registered users:</h4>
-        <table>
-            <thead>
+    <main>
+        <div class="container">
+            <h2>registered User</h2>
+            <img th:src="@{img/changeToAdmin.svg}" src="" alt="an image that shows the admin changing roles of users to make them admins too">
+            <h4>list of all registered users:</h4>
+            <table>
+                <thead>
                 <tr>
                     <th>Username</th>
                     <th>action</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr th:each="registeredUser:${registeredUsers}">
                     <td><span th:text="${registeredUser.getUsername()}"></span></td>
                     <td>
@@ -34,9 +35,10 @@
                         </form>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+    </main>
     <!-- footer -->
     <div th:replace="footer::footer"></div>
     <!-- JavaScript -->
