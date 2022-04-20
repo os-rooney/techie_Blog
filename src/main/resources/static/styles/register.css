@@ -1,3 +1,6 @@
+main{
+    min-height: calc(100vh - 5vh);
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -58,6 +61,14 @@ form label:not(:first-child){
 .form-content button:hover{
     transform: scale(1.1);
 }
-footer{
-    position: absolute;
+/* Tablet - min-width: 768px */
+@media screen and (min-width: 48em){
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+    .container{
+        margin-top: 4rem;
+    }
 }
