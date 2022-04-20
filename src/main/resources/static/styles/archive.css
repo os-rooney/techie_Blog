@@ -74,3 +74,34 @@ main article{
     width: 1.625rem;
     margin-right: -.2rem;
 }
+/* min-width 1200px */
+@media screen and (min-width: 72em){
+    .container{
+        max-width: 72em;
+        margin: 0   auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container h1{
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .svg{
+        max-width: 30rem;
+        margin-bottom: 4rem;
+    }
+    .articles{
+        width: 70rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        margin-bottom: 5rem;
+    }
+    footer{
+        position: unset;
+    }
+}
