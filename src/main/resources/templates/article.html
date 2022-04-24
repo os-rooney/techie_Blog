@@ -47,7 +47,7 @@
                 <div class="show-comment" th:object="${comments}" th:each="comment : ${comments}">
                     <strong class="comment-user-date">
                         <span th:text="${comment.getUser().username}"></span>
-                        <a th:text="${#dates.format(message.postedAt,'dd.MM.yyyy HH:mm')}"></a>
+                        <a th:text="${#dates.format(comment.postedAt,'dd.MM.yyyy HH:mm')}"></a>
                     </strong>
                     <a th:text="${comment.getComment()}"></a>
 

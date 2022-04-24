@@ -3,7 +3,6 @@ package com.example.techieblog.message;
 import com.example.techieblog.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
